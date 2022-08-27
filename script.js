@@ -9,7 +9,7 @@ let questions = [
     },
 
     {
-        'question': 'Was bedeutet das HTML Tag <a></a>?',
+        'question': 'Was bedeutet das HTML Tag a?',
         'answer_1': 'Text Fett',
         'answer_2': 'Container',
         'answer_3': 'Ein Link',
@@ -28,10 +28,10 @@ let questions = [
 
     {
         'question': 'Wie bindet man eine JavaScript Datei in eine HTML Datei ein?',
-        'answer_1': '<link rel="stylesheet" href="sript.js">',
-        'answer_2': '<link rel="style" href="sript.js">',
-        'answer_3': '<script rel="stylesheet" src="script.js"></script>',
-        'answer_4': '<script src="script.js"></script>',
+        'answer_1': 'link rel="stylesheet" href="script.js"',
+        'answer_2': 'link rel="style" href="script.js"',
+        'answer_3': 'script rel="stylesheet" src="script.js"',
+        'answer_4': 'script src="script.js"',
         'right_answer': 4
     },
 
@@ -86,15 +86,11 @@ function showQuestion() {
 
 function answer(selection) {
     let question = questions[currentQuestion];
-    console.log('selected answer is', selection);
     let selectedQuestionNumber = selection.slice(-1);
-    console.log('selectedQuestionNumber is', selectedQuestionNumber)
-    console.log('current question is', question['right_answer']);
 
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
     if(selectedQuestionNumber == question['right_answer']) {
-        console.log('richtige Antwort');
         document.getElementById(selection).parentNode.classList.add('bg-success');
     }
 
@@ -103,6 +99,29 @@ function answer(selection) {
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
     }
 
+    document.getElementById('next-button').disabled = false;
+}
 
 
+function nextQuestion() {
+    currentQuestion++; //z.B. von 0 auf 1
+    document.getElementById('next-button').disabled = true;
+    resetAnswerButtons();
+    showQuestion();
+
+
+
+}
+
+
+function resetAnswerButtons() {
+    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+
+    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
 }
