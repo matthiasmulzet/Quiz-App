@@ -19,10 +19,10 @@ let questions = [
 
     {
         'question': 'Wie bindet man eine Website in eine Website ein?',
-        'answer_1': 'Text Fett',
-        'answer_2': 'Container',
-        'answer_3': 'Ein Link',
-        'answer_4': 'Kursiv',
+        'answer_1': 'iframe, frame, and frameset',
+        'answer_2': 'iframe',
+        'answer_3': 'frame',
+        'answer_4': 'frameset',
         'right_answer': 2
     },
 
@@ -45,21 +45,21 @@ let questions = [
     },
 
     {
-        'question': 'Wie heißen die Gründer von Microsoft?',
-        'answer_1': 'Steve Jobs und Walter White',
-        'answer_2': 'Bill Gates und Paul Allen',
-        'answer_3': 'Elon Musk und Bill Gates',
-        'answer_4': 'Mark Zuckerberg und Andrew McCollum',
+        'question': 'Was bedeutet CSS?',
+        'answer_1': 'Cascading Style Sheets',
+        'answer_2': 'Calculate Syntax Style',
+        'answer_3': 'Comprimating Style Sheets',
+        'answer_4': 'Cropped Style Sources',
         'right_answer': 1
     },
 
     {
-        'question': 'Wie heißt der Gründer von Microsoft?',
-        'answer_1': 'Die beiden divs werden nebeneinander angezeigt',
-        'answer_2': 'Die beiden divs werden untereinander angezeigt',
-        'answer_3': 'Es passiert nichts',
-        'answer_4': 'Das zweite div überdeckt das erste div',
-        'right_answer': 1
+        'question': 'Wie definiert man die Funktion showName in JavaScript?',
+        'answer_1': 'function showName',
+        'answer_2': 'ShowName',
+        'answer_3': 'ShowName()',
+        'answer_4': 'function showName()',
+        'right_answer': 4
     }
 ];
 
@@ -74,13 +74,23 @@ function init() {
 
 
 function showQuestion() {
-    let question = questions[currentQuestion];
-    
-    document.getElementById('questiontext').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+
+    if (currentQuestion >= questions.length) {
+        //TODO: Show End Screen
+    }
+
+    else {
+        let question = questions[currentQuestion];
+
+        document.getElementById('question-number').innerHTML = currentQuestion + 1;
+
+        document.getElementById('questiontext').innerHTML = question['question'];
+        document.getElementById('answer_1').innerHTML = question['answer_1'];
+        document.getElementById('answer_2').innerHTML = question['answer_2'];
+        document.getElementById('answer_3').innerHTML = question['answer_3'];
+        document.getElementById('answer_4').innerHTML = question['answer_4'];
+    }
+
 }
 
 
@@ -90,7 +100,7 @@ function answer(selection) {
 
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
-    if(selectedQuestionNumber == question['right_answer']) {
+    if (selectedQuestionNumber == question['right_answer']) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
     }
 
@@ -108,9 +118,6 @@ function nextQuestion() {
     document.getElementById('next-button').disabled = true;
     resetAnswerButtons();
     showQuestion();
-
-
-
 }
 
 
