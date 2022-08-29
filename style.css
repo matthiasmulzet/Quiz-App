@@ -11,8 +11,38 @@ body {
 }
 
 .quiz-card {
-    width: 30rem;
+    height: 500px !important;
+    width: 90rem;
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
 
+.blue-left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    height: 500px;
+    width: 30%;
+}
+
+.languages-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'rubik-regular';
+}
+
+.card-img-top {
+    height: 280px;
+    object-fit: contain;
+    background-color: gray;
 }
 
 .question-footer {
@@ -30,4 +60,23 @@ body {
 
 .bg-success, .bg-danger {
     color: white;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.final-headline {
+    font-size: 38px;
+    margin-bottom: 32px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
 }
