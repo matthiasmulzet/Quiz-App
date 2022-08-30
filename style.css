@@ -2,6 +2,14 @@ body {
     background-color: #DDE7F2 !important;
 }
 
+.width-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
 .container {
     min-height: 100vh;
     background-color: #DDE7F2 !important;
@@ -13,9 +21,10 @@ body {
 .quiz-card {
     height: 500px !important;
     width: 90rem;
+    max-width: 800px;
     display: flex;
     flex-direction: row !important;
-    justify-content: center !important;
+    justify-content: space-between !important;
     align-items: center !important;
     margin-top: 40px;
     margin-bottom: 40px;
@@ -24,32 +33,108 @@ body {
 .blue-left-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: blue;
     height: 500px;
-    width: 30%;
+    width: 135px;
+    min-width: 135px;
 }
+
 
 .languages-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    width: 100%;
+}
+
+.languages {
+    display: flex;
     align-items: center;
-    font-family: 'rubik-regular';
+}
+
+.languages p {
+    margin-bottom: 20px;
+    color: white;
+    font-family: 'rubik';
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.languages span{
+    margin-bottom: 20px;
+    color: white;
+    font-family: 'rubik';
+    font-weight: normal;
+    font-size: 22px;
+    margin-left: 35px;
 }
 
 .card-img-top {
-    height: 280px;
+    height: 80px;
     object-fit: contain;
-    background-color: gray;
+    margin-top: 50px;;
+    margin-bottom: 50px;
+}
+
+.start-screen {
+    height: 100%;
+    width: 100%;
+    background-image: url(img/bg\ b.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.start-screen span{
+    height: 100%;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Rubik';
+    font-weight: bold;
+}
+
+.start-button {
+    margin-right: 40px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    background-color: #F9F9F2;
+}
+
+.answer-body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+}
+
+.answer-letter {
+    font-size: 20px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: lightgray;
+    font-family: 'rubik';
+}
+
+.answer-text {
+    padding: 10px;
+    font-family: 'rubik';
 }
 
 .question-footer {
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid rgba(0, 0, 0, 0.4);
-    padding-top: 12px;
+    width: 100%;
+    margin-top: 55px;
 }
 
 .quiz-answer-card:hover {
@@ -57,17 +142,33 @@ body {
     background-color: rgba(0,0,0,0.05);
 }
 
+.quiz-answer-card {
+    display: flex;
+    align-items: flex-start;
+    width: 28rem !important;
+}
+
+.card-title {
+    text-align: center;
+    margin-bottom: 40px !important;
+    font-family: 'rubik';
+}
 
 .bg-success, .bg-danger {
     color: white;
 }
 
-.width-100 {
+.end-screen-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #E7834A;
+    border-radius: 100%;
+    height: 97%;
     width: 100%;
-}
-
-.text-center {
-    text-align: center;
+    margin-right: 40px;
+    margin-left: 40px;
 }
 
 .final-headline {
@@ -79,4 +180,14 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 24px;
+}
+
+.end-picture {
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.how-much-right-answers {
+    margin-bottom: 20px;
 }

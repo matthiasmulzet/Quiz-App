@@ -27,15 +27,6 @@ let questions = [
     },
 
     {
-        'question': 'Wie bindet man eine JavaScript Datei in eine HTML Datei ein?',
-        'answer_1': 'link rel="stylesheet" href="script.js"',
-        'answer_2': 'link rel="style" href="script.js"',
-        'answer_3': 'script rel="stylesheet" src="script.js"',
-        'answer_4': 'script src="script.js"',
-        'right_answer': 4
-    },
-
-    {
         'question': 'Was passiert wenn man einem div, welches 2 weitere divs beinhaltet, display:flex übergit?',
         'answer_1': 'Die beiden divs werden nebeneinander angezeigt',
         'answer_2': 'Die beiden divs werden untereinander angezeigt',
@@ -60,6 +51,15 @@ let questions = [
         'answer_3': 'ShowName()',
         'answer_4': 'function showName()',
         'right_answer': 4
+    },
+
+    {
+        'question': 'Wie bindet man eine JavaScript Datei in eine HTML Datei ein?',
+        'answer_1': 'link rel="stylesheet" href="script.js"',
+        'answer_2': 'link rel="style" href="script.js"',
+        'answer_3': 'script rel="stylesheet" src="script.js"',
+        'answer_4': 'script src="script.js"',
+        'right_answer': 4
     }
 ];
 
@@ -74,8 +74,9 @@ let AUDIO_END = new Audio('audio/end.mp3');
 
 
 function init() {
+    document.getElementById('start-screen').style = 'display: none;';
+    document.getElementById('question-body').style = '';
     document.getElementById('all-questions').innerHTML = questions.length;
-
     showQuestion();
 }
 
@@ -103,8 +104,6 @@ function showEndScreen() {
 
     document.getElementById('amount-of-questions').innerHTML = questions.length;
     document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
-
-    document.getElementById('header-image').src = "img/Group 5.png";
 }
 
 
@@ -123,10 +122,10 @@ function updateToNextQuestion() {
     document.getElementById('question-number').innerHTML = currentQuestion + 1;
 
     document.getElementById('questiontext').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+    document.getElementById('answer_span_1').innerHTML = question['answer_1'];
+    document.getElementById('answer_span_2').innerHTML = question['answer_2'];
+    document.getElementById('answer_span_3').innerHTML = question['answer_3'];
+    document.getElementById('answer_span_4').innerHTML = question['answer_4'];
 }
 
 
