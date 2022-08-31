@@ -10,6 +10,10 @@ body {
     text-align: center;
 }
 
+.color-blue {
+    color: blue !important;
+}
+
 .container {
     min-height: 100vh;
     background-color: #DDE7F2 !important;
@@ -26,8 +30,6 @@ body {
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center !important;
-    margin-top: 40px;
-    margin-bottom: 40px;
 }
 
 .blue-left-container {
@@ -133,6 +135,7 @@ body {
 .question-footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin-top: 55px;
 }

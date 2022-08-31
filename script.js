@@ -104,6 +104,7 @@ function showEndScreen() {
 
     document.getElementById('amount-of-questions').innerHTML = questions.length;
     document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
+    document.getElementById('js').classList.add('color-blue');
 }
 
 
@@ -126,6 +127,30 @@ function updateToNextQuestion() {
     document.getElementById('answer_span_2').innerHTML = question['answer_2'];
     document.getElementById('answer_span_3').innerHTML = question['answer_3'];
     document.getElementById('answer_span_4').innerHTML = question['answer_4'];
+
+    if (currentQuestion < 3) {
+        document.getElementById('html').classList.remove('color-blue');
+    }
+
+    else {
+        document.getElementById('html').classList.add('color-blue');
+    }
+
+    if (currentQuestion >= 3 && currentQuestion < 5) {
+        document.getElementById('css').classList.remove('color-blue');
+    }
+
+    else {
+        document.getElementById('css').classList.add('color-blue');
+    }
+
+    if (currentQuestion >= 5 && currentQuestion < 7) {
+        document.getElementById('js').classList.remove('color-blue');
+    }
+
+    else {
+        document.getElementById('js').classList.add('color-blue');
+    }
 }
 
 

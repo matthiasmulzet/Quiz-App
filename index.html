@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <script src="script.js"></script>
@@ -41,15 +42,15 @@
         <img src="img/logo1.png" id="header-image" class="card-img-top">
         <div class="languages-container">
           <div class="languages">
-            <p>|</p>
+            <p id="html" class="color-blue">|</p>
             <span>HTML</span>
           </div>
           <div class="languages">
-            <p>|</p>
+            <p id="css" class="color-blue">|</p>
             <span>CSS</span>
           </div>
           <div class="languages">
-            <p>|</p>
+            <p id="js" class="color-blue">|</p>
             <span>JS</span>
           </div>
         </div>
@@ -57,7 +58,7 @@
 
       <div class="card-body" id="start-screen">
         <div class="start-screen">
-          <span>Willkommen zum Quiz</span>
+          <span class="text-center">Willkommen zum Quiz</span>
         </div>
         <button onclick="init()" type="button" class="btn btn-primary start-button">Quiz Starten</button>`;
       </div>
@@ -115,7 +116,7 @@
             <b id="question-number">1</b> von <b id="all-questions">7</b> Fragen
           </span>
 
-          <button onclick="nextQuestion()" type="button" class="btn btn-primary" id="next-button" disabled>Nächste
+          <button onclick="nextQuestion()" type="button" class="btn btn-primary btn-responsive" id="next-button" disabled>Nächste
             Frage</button>
 
         </div>
