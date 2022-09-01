@@ -62,7 +62,7 @@
         <div class="start-screen">
           <span class="text-center">Willkommen zum Quiz</span>
         </div>
-        <button onclick="init()" type="button" class="btn btn-primary start-button">Quiz Starten</button>`;
+        <button onclick="init()" type="button" class="btn btn-primary start-button">Quiz Starten</button>
       </div>
 
       <!-- end screen page -->
@@ -94,10 +94,24 @@
           </div>
         </div>
 
+        <div id="answer_1_container_no_onclick" class="card quiz-answer-card mb-2 d-none">
+          <div class="answer-body" id="answer_1_no_onclick">
+            <span class="answer-letter">A</span>
+            <span class="answer-text" id="answer_span_1_no_onclick">Antwort</span>
+          </div>
+        </div>
+
         <div id="answer_2_container" class="card quiz-answer-card mb-2" onclick="answer('answer_2')">
           <div class="answer-body" id="answer_2">
             <span class="answer-letter">B</span>
             <span class="answer-text" id="answer_span_2">Antwort</span>
+          </div>
+        </div>
+
+        <div id="answer_2_container_no_onclick" class="card quiz-answer-card mb-2 d-none">
+          <div class="answer-body" id="answer_2_no_onclick">
+            <span class="answer-letter">B</span>
+            <span class="answer-text" id="answer_span_2_no_onclick">Antwort</span>
           </div>
         </div>
 
@@ -108,10 +122,24 @@
           </div>
         </div>
 
+        <div id="answer_3_container_no_onclick" class="card quiz-answer-card mb-2 d-none">
+          <div class="answer-body" id="answer_3_no_onclick">
+            <span class="answer-letter">C</span>
+            <span class="answer-text" id="answer_span_3_no_onclick">Antwort</span>
+          </div>
+        </div>
+
         <div id="answer_4_container" class="card quiz-answer-card mb-2" onclick="answer('answer_4')">
           <div class="answer-body" id="answer_4">
             <span class="answer-letter">D</span>
             <span class="answer-text" id="answer_span_4">Antwort</span>
+          </div>
+        </div>
+
+        <div id="answer_4_container_no_onclick" class="card quiz-answer-card mb-2 d-none">
+          <div class="answer-body" id="answer_4_no_onclick">
+            <span class="answer-letter">D</span>
+            <span class="answer-text" id="answer_span_4_no_onclick">Antwort</span>
           </div>
         </div>
 

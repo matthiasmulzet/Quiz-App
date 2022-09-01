@@ -10,6 +10,14 @@ body {
     text-align: center;
 }
 
+.z-index-1 {
+    z-index: 1;
+}
+
+.d-none {
+    display: none !important;
+}
+
 .color-blue {
     color: blue !important;
 }

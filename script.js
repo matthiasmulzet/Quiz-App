@@ -182,15 +182,47 @@ function answer(selection) {
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
     if (rightAnswerSelected(question, selectedQuestionNumber)) { //right answer
-        document.getElementById(selection).parentNode.classList.add('bg-success');
         AUDIO_SUCCESS.play();
         rightQuestions++;
+
+        document.getElementById('answer_1_container').classList.add('d-none');
+        document.getElementById('answer_2_container').classList.add('d-none');
+        document.getElementById('answer_3_container').classList.add('d-none');
+        document.getElementById('answer_4_container').classList.add('d-none');
+
+        document.getElementById('answer_1_container_no_onclick').classList.remove('d-none');
+        document.getElementById('answer_2_container_no_onclick').classList.remove('d-none');
+        document.getElementById('answer_3_container_no_onclick').classList.remove('d-none');
+        document.getElementById('answer_4_container_no_onclick').classList.remove('d-none');
+
+        document.getElementById('answer_span_1_no_onclick').innerHTML = question['answer_1'];
+        document.getElementById('answer_span_2_no_onclick').innerHTML = question['answer_2'];
+        document.getElementById('answer_span_3_no_onclick').innerHTML = question['answer_3'];
+        document.getElementById('answer_span_4_no_onclick').innerHTML = question['answer_4'];
+
+        document.getElementById(selection+'_no_onclick').parentNode.classList.add('bg-success');
     }
 
     else {
-        document.getElementById(selection).parentNode.classList.add('bg-danger');
-        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
         AUDIO_FAIL.play();
+
+        document.getElementById('answer_1_container').classList.add('d-none');
+        document.getElementById('answer_2_container').classList.add('d-none');
+        document.getElementById('answer_3_container').classList.add('d-none');
+        document.getElementById('answer_4_container').classList.add('d-none');
+
+        document.getElementById('answer_1_container_no_onclick').classList.remove('d-none');
+        document.getElementById('answer_2_container_no_onclick').classList.remove('d-none');
+        document.getElementById('answer_3_container_no_onclick').classList.remove('d-none');
+        document.getElementById('answer_4_container_no_onclick').classList.remove('d-none');
+
+        document.getElementById('answer_span_1_no_onclick').innerHTML = question['answer_1'];
+        document.getElementById('answer_span_2_no_onclick').innerHTML = question['answer_2'];
+        document.getElementById('answer_span_3_no_onclick').innerHTML = question['answer_3'];
+        document.getElementById('answer_span_4_no_onclick').innerHTML = question['answer_4'];
+
+        document.getElementById(selection+'_no_onclick').parentNode.classList.add('bg-danger');
+        document.getElementById(idOfRightAnswer+'_no_onclick').parentNode.classList.add('bg-success');
     }
 
     document.getElementById('next-button').disabled = false;
@@ -203,23 +235,32 @@ function rightAnswerSelected(question, selectedQuestionNumber) {
 
 
 function nextQuestion() {
+    resetAnswerButtons();
+    document.getElementById('answer_1_container_no_onclick').classList.add('d-none');
+    document.getElementById('answer_2_container_no_onclick').classList.add('d-none');
+    document.getElementById('answer_3_container_no_onclick').classList.add('d-none');
+    document.getElementById('answer_4_container_no_onclick').classList.add('d-none');
+
+    document.getElementById('answer_1_container').classList.remove('d-none');
+    document.getElementById('answer_2_container').classList.remove('d-none');
+    document.getElementById('answer_3_container').classList.remove('d-none');
+    document.getElementById('answer_4_container').classList.remove('d-none');
     currentQuestion++; //z.B. from 0 to 1
     document.getElementById('next-button').disabled = true;
-    resetAnswerButtons();
     showQuestion();
 }
 
 
 function resetAnswerButtons() {
-    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
-    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
-    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
-    document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_1_no_onclick').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_2_no_onclick').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_3_no_onclick').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_4_no_onclick').parentNode.classList.remove('bg-success');
 
-    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
-    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
-    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
-    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_1_no_onclick').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_2_no_onclick').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_3_no_onclick').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_4_no_onclick').parentNode.classList.remove('bg-danger');
 }
 
 
