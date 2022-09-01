@@ -66,7 +66,9 @@ let questions = [
 
 let currentQuestion = 0;
 
+
 let rightQuestions = 0;
+
 
 let AUDIO_SUCCESS = new Audio('audio/success.mp3');
 let AUDIO_FAIL = new Audio('audio/fail.mp3');
@@ -92,6 +94,7 @@ function showQuestion() {
         updateToNextQuestion();
     }
 }
+
 
 function gameIsOver() {
     return currentQuestion >= questions.length;
@@ -128,6 +131,18 @@ function updateToNextQuestion() {
     document.getElementById('answer_span_3').innerHTML = question['answer_3'];
     document.getElementById('answer_span_4').innerHTML = question['answer_4'];
 
+    showWhiteBalk();
+}
+
+
+function showWhiteBalk() {
+    whiteBalkHTML();
+    whiteBalkCSS();
+    whiteBalkJS();
+}
+
+
+function whiteBalkHTML() {
     if (currentQuestion < 3) {
         document.getElementById('html').classList.remove('color-blue');
     }
@@ -135,7 +150,10 @@ function updateToNextQuestion() {
     else {
         document.getElementById('html').classList.add('color-blue');
     }
+}
 
+
+function whiteBalkCSS() {
     if (currentQuestion >= 3 && currentQuestion < 5) {
         document.getElementById('css').classList.remove('color-blue');
     }
@@ -143,7 +161,10 @@ function updateToNextQuestion() {
     else {
         document.getElementById('css').classList.add('color-blue');
     }
+}
 
+
+function whiteBalkJS() {
     if (currentQuestion >= 5 && currentQuestion < 7) {
         document.getElementById('js').classList.remove('color-blue');
     }
@@ -156,11 +177,11 @@ function updateToNextQuestion() {
 
 function answer(selection) {
     let question = questions[currentQuestion];
-    let selectedQuestionNumber = selection.slice(-1);
+    let selectedQuestionNumber = selection.slice(-1); //last number from answer id will be saved
 
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
-    if (rightAnswerSelected(question, selectedQuestionNumber)) { //richtige Frage beantwortet
+    if (rightAnswerSelected(question, selectedQuestionNumber)) { //right answer
         document.getElementById(selection).parentNode.classList.add('bg-success');
         AUDIO_SUCCESS.play();
         rightQuestions++;
@@ -182,7 +203,7 @@ function rightAnswerSelected(question, selectedQuestionNumber) {
 
 
 function nextQuestion() {
-    currentQuestion++; //z.B. von 0 auf 1
+    currentQuestion++; //z.B. from 0 to 1
     document.getElementById('next-button').disabled = true;
     resetAnswerButtons();
     showQuestion();
@@ -204,8 +225,8 @@ function resetAnswerButtons() {
 
 function restartGame() {
     document.getElementById('header-image').src = "img/logo1.png";
-    document.getElementById('end-screen').style = 'display: none;'; //Endscreen ausblenden
-    document.getElementById('question-body').style = ''; //question Body wieder anzeigen 
+    document.getElementById('end-screen').style = 'display: none;';
+    document.getElementById('question-body').style = ''; //show question Body again
     currentQuestion = 0;
     rightQuestions = 0;
     init();

@@ -192,5 +192,18 @@
     .btn-responsive {
         font-size: 10px !important;
     }
+}
 
+@media (max-width: 350px) {
+    .end-picture {
+        height: 100px;
+    }
+
+    .final-headline {
+        font-size: 23px;
+    }
+
+    .how-much-right-answers {
+        font-size: 15px;
+    }
 }
