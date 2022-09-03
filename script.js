@@ -178,51 +178,14 @@ function whiteBalkJS() {
 function answer(selection) {
     let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1); //last number from answer id will be saved
-
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
     if (rightAnswerSelected(question, selectedQuestionNumber)) { //right answer
-        AUDIO_SUCCESS.play();
-        rightQuestions++;
-
-        document.getElementById('answer_1_container').classList.add('d-none');
-        document.getElementById('answer_2_container').classList.add('d-none');
-        document.getElementById('answer_3_container').classList.add('d-none');
-        document.getElementById('answer_4_container').classList.add('d-none');
-
-        document.getElementById('answer_1_container_no_onclick').classList.remove('d-none');
-        document.getElementById('answer_2_container_no_onclick').classList.remove('d-none');
-        document.getElementById('answer_3_container_no_onclick').classList.remove('d-none');
-        document.getElementById('answer_4_container_no_onclick').classList.remove('d-none');
-
-        document.getElementById('answer_span_1_no_onclick').innerHTML = question['answer_1'];
-        document.getElementById('answer_span_2_no_onclick').innerHTML = question['answer_2'];
-        document.getElementById('answer_span_3_no_onclick').innerHTML = question['answer_3'];
-        document.getElementById('answer_span_4_no_onclick').innerHTML = question['answer_4'];
-
-        document.getElementById(selection+'_no_onclick').parentNode.classList.add('bg-success');
+        showRightAnswer(selection, question);
     }
 
     else {
-        AUDIO_FAIL.play();
-
-        document.getElementById('answer_1_container').classList.add('d-none');
-        document.getElementById('answer_2_container').classList.add('d-none');
-        document.getElementById('answer_3_container').classList.add('d-none');
-        document.getElementById('answer_4_container').classList.add('d-none');
-
-        document.getElementById('answer_1_container_no_onclick').classList.remove('d-none');
-        document.getElementById('answer_2_container_no_onclick').classList.remove('d-none');
-        document.getElementById('answer_3_container_no_onclick').classList.remove('d-none');
-        document.getElementById('answer_4_container_no_onclick').classList.remove('d-none');
-
-        document.getElementById('answer_span_1_no_onclick').innerHTML = question['answer_1'];
-        document.getElementById('answer_span_2_no_onclick').innerHTML = question['answer_2'];
-        document.getElementById('answer_span_3_no_onclick').innerHTML = question['answer_3'];
-        document.getElementById('answer_span_4_no_onclick').innerHTML = question['answer_4'];
-
-        document.getElementById(selection+'_no_onclick').parentNode.classList.add('bg-danger');
-        document.getElementById(idOfRightAnswer+'_no_onclick').parentNode.classList.add('bg-success');
+        showWrongAnswer(selection, idOfRightAnswer, question);
     }
 
     document.getElementById('next-button').disabled = false;
@@ -234,17 +197,75 @@ function rightAnswerSelected(question, selectedQuestionNumber) {
 }
 
 
-function nextQuestion() {
-    resetAnswerButtons();
-    document.getElementById('answer_1_container_no_onclick').classList.add('d-none');
-    document.getElementById('answer_2_container_no_onclick').classList.add('d-none');
-    document.getElementById('answer_3_container_no_onclick').classList.add('d-none');
-    document.getElementById('answer_4_container_no_onclick').classList.add('d-none');
+function showRightAnswer(selection, question) {
+    AUDIO_SUCCESS.play();
+    rightQuestions++;
 
+    removeAnswerContainerWithOnclick();
+    setAnswerContainerWithoutOnclick();
+    setAnswersWithoutOnclick(question);
+
+    document.getElementById(selection + '_no_onclick').parentNode.classList.add('bg-success');
+}
+
+
+function showWrongAnswer(selection, idOfRightAnswer, question) {
+    AUDIO_FAIL.play();
+
+    removeAnswerContainerWithOnclick();
+    setAnswerContainerWithoutOnclick();
+    setAnswersWithoutOnclick(question);
+
+    document.getElementById(selection + '_no_onclick').parentNode.classList.add('bg-danger');
+    document.getElementById(idOfRightAnswer + '_no_onclick').parentNode.classList.add('bg-success');
+}
+
+
+function removeAnswerContainerWithOnclick() {
+    document.getElementById('answer_1_container').classList.add('d-none');
+    document.getElementById('answer_2_container').classList.add('d-none');
+    document.getElementById('answer_3_container').classList.add('d-none');
+    document.getElementById('answer_4_container').classList.add('d-none');
+}
+
+
+function setAnswerContainerWithOnlick() {
     document.getElementById('answer_1_container').classList.remove('d-none');
     document.getElementById('answer_2_container').classList.remove('d-none');
     document.getElementById('answer_3_container').classList.remove('d-none');
     document.getElementById('answer_4_container').classList.remove('d-none');
+}
+
+
+function removeAnswerContainerWithoutOnclick() {
+    document.getElementById('answer_1_container_no_onclick').classList.add('d-none');
+    document.getElementById('answer_2_container_no_onclick').classList.add('d-none');
+    document.getElementById('answer_3_container_no_onclick').classList.add('d-none');
+    document.getElementById('answer_4_container_no_onclick').classList.add('d-none');
+}
+
+
+function setAnswerContainerWithoutOnclick() {
+    document.getElementById('answer_1_container_no_onclick').classList.remove('d-none');
+    document.getElementById('answer_2_container_no_onclick').classList.remove('d-none');
+    document.getElementById('answer_3_container_no_onclick').classList.remove('d-none');
+    document.getElementById('answer_4_container_no_onclick').classList.remove('d-none');
+}
+
+
+function setAnswersWithoutOnclick(question) {
+    document.getElementById('answer_span_1_no_onclick').innerHTML = question['answer_1'];
+    document.getElementById('answer_span_2_no_onclick').innerHTML = question['answer_2'];
+    document.getElementById('answer_span_3_no_onclick').innerHTML = question['answer_3'];
+    document.getElementById('answer_span_4_no_onclick').innerHTML = question['answer_4'];
+}
+
+
+function nextQuestion() {
+    resetAnswerButtons();
+    removeAnswerContainerWithoutOnclick();
+    setAnswerContainerWithOnlick();
+
     currentQuestion++; //z.B. from 0 to 1
     document.getElementById('next-button').disabled = true;
     showQuestion();
